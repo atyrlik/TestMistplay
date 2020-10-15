@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/gamesListFragment"
-        android:name="me.atyrlik.testmistplay.gameslist.GamesListFragment"
+        android:name="me.atyrlik.testmistplay.gameslistscreen.view.GamesListFragment"
         android:label="Games List"
         tools:layout="@layout/games_list_fragment" />
 </navigation>

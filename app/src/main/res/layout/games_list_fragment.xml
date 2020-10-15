@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gameslist.GamesListFragment">
+    tools:context=".gameslistscreen.view.GamesListFragment">
 
     <TextView
+        android:id="@+id/hello"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Hello" />
