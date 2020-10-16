@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TestMistplay</string>
     <string name="game_cover_content_description">Game cover</string>
+    <string name="games_list_screen_error">Sorry, we could not load the games… Please try again later.</string>
 </resources>
