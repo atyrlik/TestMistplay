@@ -10,10 +10,16 @@ class GamesCategoriesAdapter(
     var gamesCategories: List<GamesList>
 ): RecyclerView.Adapter<GamesCategoriesAdapter.GamesCategoryViewHolder>() {
 
-    class GamesCategoryViewHolder(private val binding: GamesCategoryItemBinding): RecyclerView.ViewHolder(binding.root) {
+    // Allow nested recyclerviews to share views (improve performance).
+    private val gamesRecycledViewPool = RecyclerView.RecycledViewPool()
+
+    inner class GamesCategoryViewHolder(private val binding: GamesCategoryItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(model: GamesList) {
             binding.gameCategoryTitle.text = model.title
-            binding.gamesList.adapter = GamesAdapter(model.games)
+            binding.gamesList.apply {
+                adapter = GamesAdapter(model.games)
+                setRecycledViewPool(gamesRecycledViewPool)
+            }
         }
     }
 
