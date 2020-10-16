@@ -31,8 +31,14 @@ class GamesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.games.observe(viewLifecycleOwner, Observer { games ->
-            binding.hello.text = games.toString()
+
+        binding.gamesCategoriesList.adapter = GamesCategoriesAdapter(gamesCategories = emptyList())
+
+        viewModel.games.observe(viewLifecycleOwner, Observer { gamesCategories ->
+            with (binding.gamesCategoriesList.adapter as GamesCategoriesAdapter) {
+                this.gamesCategories = gamesCategories
+                notifyDataSetChanged()
+            }
         })
     }
 
