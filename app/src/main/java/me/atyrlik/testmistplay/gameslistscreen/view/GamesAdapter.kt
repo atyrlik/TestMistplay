@@ -3,6 +3,8 @@ package me.atyrlik.testmistplay.gameslistscreen.view
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
+import me.atyrlik.testmistplay.R
 import me.atyrlik.testmistplay.databinding.GameItemBinding
 import me.atyrlik.testmistplay.models.Game
 
@@ -13,6 +15,10 @@ class GamesAdapter(
     class GameViewHolder(private val binding: GameItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(model: Game) {
             binding.gameTitle.text = model.title
+            
+            Picasso.get().load(model.img)
+                .placeholder(R.drawable.game_cover_placeholder)
+                .into(binding.gameCover)
         }
     }
 
