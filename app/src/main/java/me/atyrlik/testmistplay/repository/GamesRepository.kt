@@ -17,7 +17,8 @@ interface GamesRepository {
 
 class GamesRepositoryImpl(private val context: Context): GamesRepository {
     override suspend fun getGames(): Result<List<GamesList>> = withContext(Dispatchers.IO) {
-        // we only have a json file for the data, so let's keep it simple
+        // We only have a json file for the data, so let's keep it simple.
+        // We only load it once, so no need for caching.
         try {
             val jsonString = context.resources.openRawResource(R.raw.games).bufferedReader().use {
                 it.readText()
