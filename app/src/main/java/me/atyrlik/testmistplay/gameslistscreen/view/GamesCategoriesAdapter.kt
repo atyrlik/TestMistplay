@@ -17,6 +17,8 @@ class GamesCategoriesAdapter(
         fun bind(model: GamesList) {
             binding.gameCategoryTitle.text = model.title
             binding.gamesList.apply {
+                // We are recreating the adapter each times we bind it.
+                // We could eventually cache it if performance was becoming an issue.
                 adapter = GamesAdapter(model.games)
                 setRecycledViewPool(gamesRecycledViewPool)
             }

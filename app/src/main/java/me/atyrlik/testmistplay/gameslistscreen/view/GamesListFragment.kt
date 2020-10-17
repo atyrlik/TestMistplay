@@ -43,6 +43,8 @@ class GamesListFragment : Fragment() {
         })
 
         viewModel.loadingState.observe(viewLifecycleOwner, Observer { state ->
+            // If there was more ui elements,
+            // we could also use view grouping to toggle them on and off.
             when (state) {
                 GamesListViewModel.LoadingState.LOADING -> {
                     binding.gamesCategoriesList.isVisible = false
